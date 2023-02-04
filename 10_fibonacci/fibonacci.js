@@ -1,19 +1,23 @@
 const fibonacci = function(numberInSequence) {
+
     if(numberInSequence < 0) {
         return "OOPS";
     }
 
-    let num1 = 0;
-    let num2 = 1;
-    let num3 = 0;
-
-    for(let i = 1; i < numberInSequence; i++) {
-        num3 = num2 + num1; 
-        num1 = num2;
-        num2 = num3
+    if(numberInSequence === 0) {
+        return 0;
     }
 
-    return num3;
+    let num1 = 0;
+    let num2 = 1;
+
+    for(let i = 2; i <= numberInSequence; i++) {
+        let temp = num2;
+        num2 = num2 + num1;
+        num1 = temp;
+    }
+
+    return num2;
 };
 // Do not edit below this line
 module.exports = fibonacci;
